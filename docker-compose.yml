@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  testclient:
+    build: .
+    image: nexus-publish-tool
+    command: https://maven.devops.developer.qld.gov.au/ maven M@ven_Pu5h maven2 maven-releases 'groupId=com.example artifactId=myapp version=1.0' extension=jar test/resources/example-1.0.jar 
+    volumes:
+      - ../nexus-repository-publish/test:/test
