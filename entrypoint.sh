@@ -17,4 +17,21 @@
 export JAVA_HOME=/usr/lib/jvm/java-1.8-openjdk
 export PATH=$JAVA_HOME/bin:$PATH
 
-groovy /opt/sonatype/bin/NexusPublisher.groovy --serverurl $1 --username $2 --password $3 --format $4 --repository $5 --filename $GITHUB_WORKSPACE/$8 $(echo -C$6 | sed 's/ / -C/g') $(echo -A$7 | sed 's/ / -A/g')
+serverurl=$1
+echo $serverurl
+username=$2
+echo $username
+password=$3
+echo $password
+format=$4
+echo $format
+repository=$5
+echo $repository
+filename=$GITHUB_WORKSPACE/$8
+echo $filename
+maven_arg_1=$(echo -C$6 | sed 's/ / -C/g')
+echo $maven_arg_1
+maven_arg_2=$(echo -A$7 | sed 's/ / -A/g')
+echo $maven_arg_2
+
+groovy /opt/sonatype/bin/NexusPublisher.groovy --serverurl $serverurl --username $username --password $password --format $format --repository $repository --filename $filename $maven_arg_1 $maven_arg_2
