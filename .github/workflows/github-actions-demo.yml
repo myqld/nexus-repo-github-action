@@ -23,6 +23,6 @@ jobs:
           # Component coordinates in key=value format. e.g. groupId=com.example artifactId=app version=1.0.0
           coordinates: "groupId=com.example2 artifactId=myapp version=1.0"
           # Component assets in key=value format. e.g. extension=jar
-          assets: filename=example-1.0.jar
+          assets: extension=jar
           # File to publish
           filename: ./test/resources/example-1.0.jar
