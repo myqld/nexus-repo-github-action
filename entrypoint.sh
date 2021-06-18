@@ -34,4 +34,8 @@ echo $maven_arg_1
 maven_arg_2=$(echo -A$7 | sed 's/ / -A/g')
 echo $maven_arg_2
 
+# curl -v -u ${username}:${password} ${serverurl}/service/rest/v1/status/check
+
+set -x
+
 groovy /opt/sonatype/bin/NexusPublisher.groovy --serverurl $serverurl --username $username --password $password --format $format --repository $repository --filename $filename $maven_arg_1 $maven_arg_2
