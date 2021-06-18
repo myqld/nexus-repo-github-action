@@ -17,7 +17,7 @@
 export JAVA_HOME=/usr/lib/jvm/java-1.8-openjdk
 export PATH=$JAVA_HOME/bin:$PATH
 
-ls -lRa ../
+ls -lRa /home
 
 serverurl=$1
 echo $serverurl
