@@ -17,9 +17,6 @@
 export JAVA_HOME=/usr/lib/jvm/java-1.8-openjdk
 export PATH=$JAVA_HOME/bin:$PATH
 
-echo $PWD
-ls -lRa / |grep -C 20 example-1.0.jar
-
 serverurl=$1
 echo $serverurl
 username=$2
