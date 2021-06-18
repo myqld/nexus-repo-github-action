@@ -4,6 +4,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v1
       - name: Nexus Repository Publish
         # You may pin to the exact commit or the version.
         # uses: sonatype-nexus-community/nexus-repo-github-action@f8178e57b79477b7b98b1ae94a4d77ba9c1bf731
