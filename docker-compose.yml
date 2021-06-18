@@ -6,4 +6,4 @@ services:
     image: nexus-publish-tool
     command: https://maven.devops.myqld.developer.qld.gov.au $USERNAME $PASSWORD maven2 maven-releases 'groupId=com.example artifactId=myapp version=1.0' extension=jar test/resources/example-1.0.jar 
     volumes:
-      - ../nexus-repository-publish/test:/test
+      - ./test:/test
