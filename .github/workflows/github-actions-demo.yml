@@ -1,0 +1,27 @@
+name: Java push to nexus test
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Nexus Repository Publish
+        # You may pin to the exact commit or the version.
+        # uses: sonatype-nexus-community/nexus-repo-github-action@f8178e57b79477b7b98b1ae94a4d77ba9c1bf731
+        uses: myqld/nexus-repo-github-action@main
+        with:
+          # Nexus Repository Server URL
+          serverUrl: https://maven.devops.myqld.developer.qld.gov.au/
+          # Username to connect to Nexus Repo to publish components
+          username: "${{ secrets.MAVEN_USER }}"
+          # Password to connect to Nexus Repo to publish components
+          password: "${{ secrets.MAVEN_PW }}"
+          # Component format e.g. maven2
+          format: maven2
+          # Name of target repository on Nexus Repo e.g. maven-releases
+          repository: maven-snapshot
+          # Component coordinates in key=value format. e.g. groupId=com.example artifactId=app version=1.0.0
+          coordinates: "groupId=au.gov.qld.idb artifactId=idb-common version=1.10.0-SNAPSHOT"
+          # Component assets in key=value format. e.g. extension=jar
+          assets: filename=idb-common-1.10.0-SNAPSHOT.jar
+          # File to publish
+          filename: ./target/idb-common-1.10.0-SNAPSHOT.jar
